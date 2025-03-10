@@ -26,8 +26,6 @@ with tab0:
         </p>
         """, unsafe_allow_html=True
     )
-    st.image("https://source.unsplash.com/800x400/?health,hospital", use_column_width=True)
-    
 with tab1:
     global_trend = df.groupby('Year')['Child Mortality'].mean()
     fig, ax = plt.subplots()
