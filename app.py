@@ -13,8 +13,21 @@ df = load_data()
 
 st.title("Dashboard d'Analyse Exploratoire")
 
-tab1, tab2, tab3, tab4, tab5= st.tabs(["tendance global", "Impact du Développement Économique sur la Santé", "Impact des Infrastructures Médicales","Influence de la Population et de la Densité Urbaine","Étude de Cas"])
-
+tab0, tab1, tab2, tab3, tab4, tab5= st.tabs(["Introduction","tendance global", "Impact du Développement Économique sur la Santé", "Impact des Infrastructures Médicales","Influence de la Population et de la Densité Urbaine","Étude de Cas"])
+with tab0:
+    st.markdown(
+        """
+        <h1 style="text-align: center; color: #4CAF50;">📌 Introduction</h1>
+        <p style="text-align: justify; font-size: 18px;">
+        La santé et le développement économique sont étroitement liés. L’espérance de vie et la mortalité infantile 
+        reflètent les conditions sanitaires et le niveau de vie d’un pays. Cette étude explore comment les facteurs 
+        socio-économiques influencent ces indicateurs, en analysant le rôle du PIB par habitant, des dépenses de santé, 
+        des infrastructures médicales et de la densité de population sur la qualité de vie à l’échelle mondiale.
+        </p>
+        """, unsafe_allow_html=True
+    )
+    st.image("https://source.unsplash.com/800x400/?health,hospital", use_column_width=True)
+    
 with tab1:
     global_trend = df.groupby('Year')['Child Mortality'].mean()
     fig, ax = plt.subplots()
