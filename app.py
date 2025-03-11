@@ -133,15 +133,6 @@ with tab1:
     ax.grid()
     st.pyplot(fig)
 
-    st.subheader("Top 10 des pays avec la meilleure dépense santé (moyenne)")
-    top_countries = df.groupby('Country')['Health Expenditure'].mean().nlargest(10)
-    fig, ax = plt.subplots(figsize=(10, 6))
-    top_countries.sort_values().plot(kind='barh', color='skyblue', ax=ax)
-    ax.set_xlabel("Dépense de Santé Moyenne")
-    ax.set_ylabel("Pays")
-    ax.set_title("Top 10 des pays avec la meilleure dépense santé (moyenne)")
-    ax.grid()
-    st.pyplot(fig)
 
 with tab2:
     st.subheader("Lien entre PIB par habitant et espérance de vie")
