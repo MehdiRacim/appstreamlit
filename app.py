@@ -304,44 +304,8 @@ with tab4:
         ax.grid(True)
         st.pyplot(fig)
 
-    st.subheader("Densité de population par pays")
-    if {'Country', 'Population Density'}.issubset(df.columns):
-        fig = px.choropleth(df, 
-                            locations="Country", 
-                            locationmode='country names',
-                            color="Population Density", 
-                            hover_name="Country",
-                            color_continuous_scale="Viridis",
-                            range_color=(df["Population Density"].quantile(0.20), df["Population Density"].quantile(0.80)),
-                            title="Densité de population par pays")
-        st.plotly_chart(fig)
-
-    st.subheader("Espérance de vie et Accès aux Lits d'Hôpital par Pays")
-    if {'Country', 'Life Expectancy', 'Hospital Beds', 'Population Density', 'Child Mortality'}.issubset(df.columns):
-        df_filtered = df.dropna(subset=['Hospital Beds']).copy()
-        df_filtered["Hospital Beds"] = df_filtered["Hospital Beds"].fillna(0.1)
-        df_filtered["Hospital Beds Size"] = df_filtered["Hospital Beds"] * 10
-        min_life_exp = df_filtered["Life Expectancy"].quantile(0.05)
-        max_life_exp = df_filtered["Life Expectancy"].quantile(0.95)
-        fig = px.choropleth(df_filtered, 
-                            locations="Country", 
-                            locationmode='country names',
-                            color="Life Expectancy", 
-                            hover_name="Country",
-                            hover_data=["Hospital Beds", "Population Density", "Child Mortality"],
-                            color_continuous_scale="Viridis",
-                            range_color=(min_life_exp, max_life_exp),
-                            title="Espérance de vie et Accès aux Lits d'Hôpital par Pays")
-        fig_scatter = px.scatter_geo(df_filtered, 
-                                    locations="Country", 
-                                    locationmode='country names',
-                                    size="Hospital Beds Size",
-                                    hover_name="Country",
-                                    hover_data=["Life Expectancy", "Child Mortality", "Population Density"],
-                                    title="Accès aux soins hospitaliers et indicateurs de santé")
-        for trace in fig_scatter.data:
-            fig.add_trace(trace)
-        st.plotly_chart(fig)
+   
+    
 
     st.subheader("Corrélation entre la population, l'espérance de vie et les lits d'hôpitaux")
     df_filtered = df[['population', 'Life Expectancy', 'Hospital Beds', 'Health Expenditure']].dropna()
