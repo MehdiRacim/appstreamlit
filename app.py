@@ -26,7 +26,7 @@ with tab0:
 
         Source de nos données : Our World Data.<br>
         type de données :<br>
-        Mortalité infantille : decés pour 1000 niassance <br>
+        Mortalité infantile : decés pour 1000 niassance <br>
         Espérance de vie : Age moyen d'une personne <br>
         Dépenses de santé : pourcentage du PIB (USD)<br>
         PIB par habitant : USD<br>
