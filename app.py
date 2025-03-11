@@ -23,6 +23,16 @@ with tab0:
         reflètent les conditions sanitaires et le niveau de vie d’un pays. Cette étude explore comment les facteurs 
         socio-économiques influencent ces indicateurs, en analysant le rôle du PIB par habitant, des dépenses de santé, 
         des infrastructures médicales et de la densité de population sur la qualité de vie à l’échelle mondiale.
+
+        Source de nos données : Our World Data.
+        type de données :
+        Mortalité infantille : decés pour 1000 niassance 
+        Espérance de vie : Age moyen d'une personne 
+        Dépenses de santé : pourcentage du PIB (USD)
+        PIB par habitant : USD
+        Nombre de lits d'hôpitaux : nombre de lits pour 1000 habitants
+        Densité de population : nombre d'habitants par km²
+        population : nombre d'habitants
         </p>
         """, unsafe_allow_html=True
     )
